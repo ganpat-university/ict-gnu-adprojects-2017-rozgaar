@@ -1,0 +1,30 @@
+/*Contact CSS*/
+.content
+{
+  margin-top: 100px;
+  margin-bottom: 20px;
+  color: #172a55;
+  font-family: century gothic;
+}
+
+.details
+{
+  line-height: 8px;
+}
+
+.Team
+{
+  line-height: 8px;
+  display: flex;
+}
+
+.section
+{
+	flex:50%;
+}
+
+p
+{
+  font-size: 17px;
+}
+/*-----------------------------------------*/
