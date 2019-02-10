@@ -41,9 +41,11 @@
 
 
 
-		$query = "select * from employeetable where Username=?;";
+		$empq = "select * from employeetable where Username=?;";
+		$indq = "select * from individualtable where Username=?;";
 		$stmt = mysqli_stmt_init($con);
-		if(!mysqli_stmt_prepare($stmt,$query)){
+		$indstmt =  mysqli_stmt_init($con);
+		if(!mysqli_stmt_prepare($stmt,$empq)){
 			header("Location:login.php?error=sqlerror");
 			exit();
 
@@ -63,8 +65,8 @@
 				{
 						session_start();
 						$_SESSION['user'] = $row['Username'];
-
-					header("Location:index.php?login=success");
+						//Employee Database
+					header("Location:empDashB.php?login=success");
 					exit();
 				}
 				else {
@@ -75,16 +77,53 @@
 			}
 
 			else {
-				{
+				if(!mysqli_stmt_prepare($indstmt,$indq)){
+					header("Location:login.php?error=sqlerror");
+					exit();
+
+				}
+				else {
+					mysqli_stmt_bind_param($indstmt,"s",$Username);
+					mysqli_stmt_execute($indstmt);
+					$result = mysqli_stmt_get_result($indstmt);
+					if($row = mysqli_fetch_assoc($result))
+					{
+						if($Password != $row['Password'])
+						{
+							header("Location:login.php?error=wrongpass");
+							exit();
+						}
+						else if($Password == $row['Password'] )
+						{
+								session_start();
+								$_SESSION['user'] = $row['Username'];
+								//individual Database
+								header("Location:indiDashB.php?login=success");
+								exit();
+						}
+						else {
+							header("Location:login.php?error=wrongpass");
+							exit();
+						}
+
+				}
+				else {
 					header("Location:login.php?error=nouser");
 					exit();
+
 				}
+
+
+
+
 			}
 		}
 
 
 	}
+}
 	if(isset($_POST['submit'])){
 		ConnectData();
 	}
+
 ?>
