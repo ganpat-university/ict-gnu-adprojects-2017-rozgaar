@@ -22,6 +22,14 @@ a{
 	background-color: white;
 	border-radius: 4px;
 }
+.s3{
+	font-size: 17px;
+	height: auto;
+	width: auto;
+	margin-top: 100px;
+	text-align: center;
+	color: #172a55;
+}
 .s1 a{
 	display: block;
 	width: 400px;
