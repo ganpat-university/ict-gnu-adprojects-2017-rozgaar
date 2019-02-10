@@ -38,15 +38,51 @@
 		$Username = $_POST['uname'];
 		$Password = $_POST['pass'];
 
-		$query = "select * from employeetable where `Username`='$Username' and `Password`='$Password'";
-		print_r($query);
-		if ($con->query($query) == TRUE) {
-			header("location:compDashB.php");
+
+
+
+		$query = "select * from employeetable where Username=?;";
+		$stmt = mysqli_stmt_init($con);
+		if(!mysqli_stmt_prepare($stmt,$query)){
+			header("Location:login.php?error=sqlerror");
+			exit();
+
 		}
-		else{
-			echo 'Enter Correct Username or Password.';
+		else {
+			mysqli_stmt_bind_param($stmt,"s",$Username);
+			mysqli_stmt_execute($stmt);
+			$result = mysqli_stmt_get_result($stmt);
+			if($row = mysqli_fetch_assoc($result))
+			{
+				if($Password != $row['Password'])
+				{
+					header("Location:login.php?error=wrongpass");
+					exit();
+				}
+				else if($Password == $row['Password'] )
+				{
+						session_start();
+						$_SESSION['user'] = $row['Username'];
+
+					header("Location:index.php?login=success");
+					exit();
+				}
+				else {
+					header("Location:login.php?error=wrongpass");
+					exit();
+				}
+
+			}
+
+			else {
+				{
+					header("Location:login.php?error=nouser");
+					exit();
+				}
+			}
 		}
-		
+
+
 	}
 	if(isset($_POST['submit'])){
 		ConnectData();
