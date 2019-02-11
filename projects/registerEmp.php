@@ -22,7 +22,7 @@
 							<tr><td><br/></td></tr>
 							<tr>
 								<td colspan="2">Address : </td>
-									<td colspan="2"><input type="text" placeholder="Address" style="width:100%;" name="address" pattern="[A-Za-z0-9]+" required></td>
+									<td colspan="2"><input type="text" placeholder="Address" style="width:100%;" name="address" required></td>
 							</tr>
 							<tr><td><br/></td></tr>
 							<tr>
@@ -82,12 +82,12 @@
 		{
 				$sql = "INSERT INTO employeetable(Name,Email,Address,Phone,Aadhar,Username,Password)
 				VALUES ('$name','$email','$address','$phone','$aadhar','$Username','$Password')";
-				if ($con->query($sql) === TRUE) {
+				if ($con->query($sql) == TRUE) {
 
 				}
 				else{
 						header("location:registerEmp.php");
-					}
+				}
 			}
 		else {
 			echo'<span style = "color:Red;">Password didn\'t matched</span>';
