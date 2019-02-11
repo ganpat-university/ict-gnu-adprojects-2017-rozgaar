@@ -8,7 +8,7 @@
 			include'header.php';
 		?>
 		<div>
-			<form method="POST" action="#">
+			<form method="POST" action="">
 
 				<fieldset style="width:450px;height:auto;margin:auto;margin-top:85px;border-radius:4px;">
 					<legend align="center"><b>Company </b>Register</legend>
@@ -16,22 +16,22 @@
 						<table style="margin:0 auto;">
 							<tr>
 								<td colspan="2">Company Name : </td>
-								<td colspan="2"><input type="text" name="cname" placeholder="Company Name" required></td>
+								<td colspan="2"><input type="text" name="name" placeholder="Company Name" pattern="[A-Za-z ]+" required></td>
 							</tr>
 							<tr><td><br/></td></tr>
 							<tr>
 								<td colspan="2">Owner Name : </td>
-								<td colspan="2"><input type="text" name="oname" placeholder="Owner Name" required></td>
+								<td colspan="2"><input type="text" name="oname" placeholder="Owner Name" pattern="[A-Za-z ]+" required></td>
 							</tr>
 							<tr><td><br/></td></tr>
 							<tr>
 								<td colspan="2">Company Add. : </td>
-								<td colspan="2"><input type="text" name="caddr" placeholder="Company Address" required></td>
+								<td colspan="2"><input type="text" name="addr" placeholder="Company Address" required></td>
 							</tr>
 							<tr><td><br/></td></tr>
 							<tr>
 								<td colspan="2">City : </td>
-								<td colspan="2"><input type="text" name="ccity" placeholder="City" required></td>
+								<td colspan="2"><input type="text" name="city" placeholder="City" required></td>
 							</tr>
 							<tr><td><br/></td></tr>
 
@@ -82,41 +82,41 @@
 							<tr><td><br/></td></tr>
 							<tr>
 								<td colspan="2">Pin Code : </td>
-								<td colspan="2"><input type="text" name="pincode" placeholder="Pin Code" required></td>
+								<td colspan="2"><input type="text" name="pincode" placeholder="Pin Code" pattern="[0-9]{6}" required></td>
 							</tr>
 							<tr><td><br/></td></tr>
 							<tr>
 								<td colspan="2">Email ID : </td>
-								<td colspan="2"><input type="text" name="cemail" placeholder="Email ID" required></td>
+								<td colspan="2"><input type="email" name="email" placeholder="Email ID" required></td>
 							</tr>
 							<tr><td><br/></td></tr>
 							<tr>
 								<td colspan="2">Phone No. : </td>
-								<td colspan="2"><input type="text" name="cphone" placeholder="Phone Number" required></td>
+								<td colspan="2"><input type="text" name="phone" placeholder="Phone Number" pattern="[0-9]{10}" required></td>
 							</tr>
 							<tr><td><br/></td></tr>
 							<tr>
 								<td colspan="2">CRN No. : </td>			<!--Company Regestration Number-->
-								<td colspan="2"><input type="text" name="ccrn" placeholder="CRN Number" required></td>
+								<td colspan="2"><input type="text" name="crn" placeholder="CRN Number" pattern="[0-9]{10}" required></td>
 							</tr>
 							<tr><td><br/></td></tr>
 							<tr>
 								<td colspan="2">Username : </td>
-									<td colspan="2"><input type="text" name="cusername" placeholder="Username" required></td>
+									<td colspan="2"><input type="text" name="username" placeholder="Username" required></td>
 							</tr>
 							<tr><td><br/></td></tr>
 							<tr>
 								<td colspan="2">Password : </td>
-									<td colspan="2"><input type="password" name="cpwd" required></td>
+									<td colspan="2"><input type="password" pattern="[A-Za-z0-9]+" name="pwd" required></td>
 							</tr>
 							<tr><td><br/></td></tr>
 							<tr>
 								<td colspan="2">Confirm Password : </td>
-									<td colspan="2"><input name="ccpwd" type="password" required></td>
+									<td colspan="2"><input name="cpwd" type="password" pattern="[A-Za-z0-9]{1,}" required></td>
 							</tr>
 							<tr><td><br/></td></tr>
 							<tr align="center">
-								<td colspan="4" align="center"><input type="submit" name="submit" onsubmit="window.location.href = '';" id="btn" value="Submit"></td>
+								<td colspan="4" align="center"><input type="submit" name="submit" id="btn" value="Submit"></td>
 							</tr>
 						</table>
 				</fieldset>
@@ -130,37 +130,36 @@
 	function AddCompanyRegistrationData()
 	{
 		require 'Connection.php';
-		$cname = $_POST['cname'];
+		$name = $_POST['name'];
 		$oname = $_POST['oname'];
-		$caddr = $_POST['caddr'];
-		$ccity = $_POST['ccity'];
+		$addr = $_POST['addr'];
+		$city = $_POST['city'];
 		$state = $_POST['state'];
 		$pincode = $_POST['pincode'];
-		$cemail = $_POST['cemail'];
-		$cphone = $_POST['cphone'];
-		$ccrn = $_POST['ccrn'];
-		$cusername = $_POST['cusername'];
+		$email = $_POST['email'];
+		$phone = $_POST['phone'];
+		$crn = $_POST['crn'];
+		$username = $_POST['username'];
+		$pwd = $_POST['pwd'];
 		$cpwd = $_POST['cpwd'];
-		$ccpwd = $_POST['ccpwd'];
 		
-		if($cpwd == $ccpwd)
+		if($pwd == $cpwd)
 		{
-			$sql = "INSERT INTO companytable(CName,COwner,CAddress,CCity,CState,CPincode,CEmail,CPhone,CCrn,CUsername,CPwd)
-				VALUES ('$cname','$oname','$caddr','$ccity','$state','$pincode','$cemail','$cphone','$ccrn','$cusername','$cpwd')";
+			$sql = "INSERT INTO companytable(Name,OwnerName,Address,City,State,Pincode,Email,Phone,CRN,Username,Password)
+				VALUES ('$name','$oname','$addr','$city','$state','$pincode','$email','$phone','$crn','$username','$pwd')";
 				
 				if ($con->query($sql) === TRUE) {
 
 				}
-				else {
-						header("location:registerComp.php");
-					}
+				else{
+					echo 'Error!';
+				}
 		}
 		else
 		{
 			echo '<span style = "color:Red;">Password does not match</span>';
 		}
 	}
-
 	if(isset($_POST['submit']))
 	{
 		AddCompanyRegistrationData();
