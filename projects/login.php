@@ -36,9 +36,9 @@
 		require 'Connection.php';
 		$Username = $_POST['uname'];
 		$Password = $_POST['pass'];
-		$empq = "select * from employeetable where Username=?;";
-		$indq = "select * from individualtable where Username=?;";
-		$compq = "select * from companytable where Username=?;";
+		$empq = "select * from employeetable where Username=? and Password=?;";
+		$indq = "select * from individualtable where Username=? and Password=?;";
+		$compq = "select * from companytable where Username=? and Password=?;";
 		$stmt = mysqli_stmt_init($con);
 		$indstmt =  mysqli_stmt_init($con);
 		$compstmt = mysqli_stmt_init($con);
@@ -47,14 +47,14 @@
 			exit();
 		}
 		else {
-			mysqli_stmt_bind_param($stmt,"s",$Username);
+			mysqli_stmt_bind_param($stmt,"ss",$Username,$Password);
 			mysqli_stmt_execute($stmt);
 			$result = mysqli_stmt_get_result($stmt);
 			if($row = mysqli_fetch_assoc($result))
 			{
 				if($Password != $row['Password'])
 				{
-					header("Location:login.php?error=wrongpass");
+					header("Location:login.php?error=wrongpass1");
 					exit();
 				}
 				else if($Password == $row['Password'] )
@@ -66,7 +66,7 @@
 					exit();
 				}
 				else {
-					header("Location:login.php?error=wrongpass");
+					header("Location:login.php?error=wrongpass1");
 					exit();
 				}
 			}
@@ -76,14 +76,14 @@
 					exit();
 				}
 				else {
-					mysqli_stmt_bind_param($indstmt,"s",$Username);
+					mysqli_stmt_bind_param($indstmt,"ss",$Username,$Password);
 					mysqli_stmt_execute($indstmt);
 					$result = mysqli_stmt_get_result($indstmt);
 					if($row = mysqli_fetch_assoc($result))
 					{
 						if($Password != $row['Password'])
 						{
-							header("Location:login.php?error=wrongpass");
+							header("Location:login.php?error=wrongpass2");
 							exit();
 						}
 						else if($Password == $row['Password'] )
@@ -95,7 +95,7 @@
 								exit();
 						}
 						else {
-							header("Location:login.php?error=wrongpass");
+							header("Location:login.php?error=wrongpass2");
 							exit();
 						}
 					}
@@ -105,14 +105,14 @@
 							exit();
 						}
 						else {
-							mysqli_stmt_bind_param($compstmt,"s",$Username);
+							mysqli_stmt_bind_param($compstmt,"ss",$Username,$Password);
 							mysqli_stmt_execute($compstmt);
 							$result = mysqli_stmt_get_result($compstmt);
 							if($row = mysqli_fetch_assoc($result))
 							{
 								if($Password != $row['Password'])
 								{
-									header("Location:login.php?error=wrongpass");
+									header("Location:login.php?error=wrongpass3");
 									exit();
 								}
 								else if($Password == $row['Password'] )
@@ -124,7 +124,7 @@
 										exit();
 								}
 								else {
-									header("Location:login.php?error=wrongpass");
+									header("Location:login.php?error=wrongpass3");
 									exit();
 								}
 							}
