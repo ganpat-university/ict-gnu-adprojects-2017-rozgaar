@@ -74,6 +74,7 @@
 					&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:30px;text-align:center">Individual Dashbaord</span>
 				</div>
 				<script>
+					window.addEventListener('click',outsideClick);
 					function openNav() {
 						document.getElementById("mySidenav").style.width = "270px";
 					}

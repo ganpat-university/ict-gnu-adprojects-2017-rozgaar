@@ -26,26 +26,26 @@
 			<h1 align="center">&nbsp;&nbsp;Team</h1>
 			<div class="Team" align="center">
 					<div class="section">
-						<img src="Ritul.png"   style="border-radius: 50%;" width="200px" height="200px"/>
+						<img src="download.png" width="200px" height="226px"/>
 						<p>&nbsp;&nbsp;&nbsp;<b>Ritul Chavda</b></p>
 						<p>&nbsp;&nbsp;&nbsp;<b>Cell:</b> +91 97147 10162</p>
 						<p>&nbsp;&nbsp;&nbsp;<b>Email:</b> ritul.cba1704@ict.gnu.ac.in</p>
 						<br>
 						<br>
-						<img src="Abhi2.png"  style="border-radius: 50%;"  width="200px" height="200px"/>
+						<img src="download.png" width="200px" height="226px"/>
 						<p>&nbsp;&nbsp;&nbsp;<b>Abhishek Tiwari</b></p>
 						<p>&nbsp;&nbsp;&nbsp;<b>Cell:</b> +91 99788 32310</p>
 						<p>&nbsp;&nbsp;&nbsp;<b>Email:</b> abhishek.cba1702@ict.gnu.ac.in</p>
 
 					</div>
 					<div class="section">
-						<img src="gauram.jpeg"  style="border-radius: 50%;"  width="200px" height="200px"/>
+						<img src="download.png" width="200px" height="226px"/>
 						<p><b>Gauram Majmudar</b></p>
 						<p><b>Cell:</b> +91 96872 98630</p>
 						<p><b>Email:</b> gauravam.cba1716@ict.gnu.ac.in</p>
 						<br>
 						<br>
-						<img src="Abhi.png"   style="border-radius: 50%;" width="200px" height="200px"/>
+						<img src="download.png" width="200px" height="226px"/>
 						<p><b>Abhishek Chaturvedi</b></p>
 						<p><b>Cell:</b> +91 97270 89755</p>
 						<p><b>Email:</b> abhishek.cba1701@ict.gnu.ac.in</p>

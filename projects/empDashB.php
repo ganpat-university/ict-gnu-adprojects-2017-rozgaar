@@ -74,6 +74,7 @@
 					&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:30px;text-align:center">Employee Dashbaord</span>
 				</div>
 				<script>
+					window.addEventListener('click',outsideClick);
 					function openNav() {
 						document.getElementById("mySidenav").style.width = "270px";
 					}
@@ -86,11 +87,6 @@
 			<br/>
 			<br/>
 			<hr>
-			<div style="float:right">
-				<?php
-					include 'button.php';
-				?>
-			</div>
 		</div>
 	</body>
 </html>
