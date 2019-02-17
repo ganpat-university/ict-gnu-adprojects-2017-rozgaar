@@ -44,10 +44,11 @@
 
 			.modal-content
 			{
-				background-color: #f4f4f4;
-				margin:20% auto;
+				background-color: #ffffff;
+				margin:12% auto;
 				padding: :20px;
-				width: 70%;
+				width: 30%;
+				height:auto;
 				box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2),0 7px 20px 0 rgba(0, 0, 0, 0.2);
 				animation-name: modalopen;
 				animation-duration: 1s;
@@ -68,18 +69,68 @@
 				from{opacity: 0}
 				to{opacity: 1}
 			}
+				input[type=text]{
+					width:auto;
+					border-radius:3px;
+					border : none;
+					border-bottom :1px solid #172a55;
+					font-family: Century Gothic;
+				}
+				input:focus{
+					outline:none;
+				}
 
+
+				input[type=submit]{
+					background-color:#172a55;
+					font-family:Century Gothic;
+					color:white;
+					width:65px;
+					height:30px;
+					border-radius:3px;
+					border:none;
+				}
+
+				button:focus{
+					outline: none;
+				}
 
 		</style>
 	</head>
 	<body>
 		<div id="simpleModal" class="modal">
 			<div class = "modal-content">
-				<span id="closeBtn" class="closebtn">&times;</span>
-				<p>Test Modal</p>
-				<p>asdadas
+				<span id="closeBtn" class="closebtn">&times;&nbsp;</span>
+					<h1>Post Job</h1>
+				<form>
+					<table style="margin:0 auto;">
+						<tr>
+						<td colspan="2">Job Topic:</td>
+						<td colspan="2"><input type="text" placeholder="Please Enter Job Topic Here" style="width:100%" required></td>
+					</tr>
+					<tr><td><br/></td></tr>
 
-				</p>
+				<tr>
+				<td colspan="2">Job Deadline:</td>
+				<td colspan="2"><input type="text" placeholder="Please Enter Deadline" style="width:100%" required></td>
+				</tr>
+				<tr><td><br/></td></tr>
+				<tr>
+				<td colspan="2">Amount:</td>
+				<td colspan="2"><input type="text" placeholder="Please Enter Amount" style="width:100%" required></td>
+				</tr>
+				<tr><td><br/></td></tr>
+				<tr>
+				<td colspan="2">Job Descrpition:</td>
+				<td colspan="2"><textarea  rows="4" cols="30" maxlength="225" required	style="resize: none;" placeholder="Please enter description about the job(maximum 225 character)"></textarea></td>
+			</tr>
+			<tr><td><br/></td></tr>
+				<tr>
+					<td colspan="4" align="center"><input type="submit"  name="submit" value="Submit"></td>
+				</tr>
+
+					</table>
+				</form>
 
 			</div>
 		</div>
