@@ -15,6 +15,7 @@
 				background-color: #172a55;
 				color: white;
 				border: none;
+
 				width: 55px;
 				height: 55px;
 				bottom: 20px;
@@ -27,8 +28,17 @@
 				color: #172a55;
 				transition: 0.4s;
 				box-shadow: 10px 10px 40px grey;
+				width:8%;
+				height:7%;
+				border-radius:12px;
 			}
-
+			.postBtn:hover span{
+				display:none;
+			}
+			.postBtn:hover:after
+			{
+				content:"Post";
+			}
 			.modal
 			{
 				display: none;
@@ -145,7 +155,7 @@
 			</div>
 		</div>
 		<div class="bottom">
-			<button id="modalBtn" class="postBtn">+</button>
+			<button id="modalBtn" class="postBtn"><span>+</span></button>
 		</div>
 
 		<script>
