@@ -42,29 +42,13 @@
 				margin-left: 50px;
 			}
 			#content{
-				width: auto;
-				height:auto;
-				float: left;
-
-			}
-
-			.NavBar{
-				height: 100%;
 				width: 100%;
-
-			}
-
-			.outside
-			{
-				width: 100%;
-				height: 100%;
-
-
+				height: 65%;
 			}
 		</style>
 	</head>
 	<body>
-		<section class="main">
+		<div class="main">
 			<div id="header">
 				<?php
 					include 'header1.php';
@@ -85,43 +69,24 @@
 					<br/>
 					<a href="contactUS.php">Contact Us</a>
 				</div>
-      </div>
-			<div id="content">
-				<div style="font-size:30px;cursor:pointer" onclick="openNav()">&nbsp;&nbsp;&#9776;&nbsp; Employee Dashbaord</div>	<!--&#9776; is used for toggle sign.-->
-			</div>
-		</section>
-    <section style="margin-top: 0%;height: 100%;" >
-      <fieldset id="le" style="width:auto;height:100%;margin:auto;margin-top:85px;border-radius:4px;">
-      </fieldset>
-    </section>
-
-
-			<script>
-				window.addEventListener('click',outsideClick);
-				var wind = document.getElementById('le');
-				function openNav() {
-					document.getElementById("mySidenav").style.width = "270px";
-					document.getElementById("emp").style.margin = "10%";
-				}
-				function closeNav() {
-					document.getElementById("mySidenav").style.width = "0";
-					document.getElementById("emp").style.margin = "0";
-				}
-				function outsideClick(e)
-				{
-					if(e.target == wind)
-					{
-							document.getElementById("mySidenav").style.width = "0";
+				<div id="content">
+					<span style="font-size:30px;cursor:pointer" onclick="openNav()">&nbsp;&nbsp;&nbsp;&#9776;</span>	<!--&#9776; is used for toggle sign.-->
+					&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:30px;text-align:center">Employee Dashbaord</span>
+				</div>
+				<script>
+					window.addEventListener('click',outsideClick);
+					function openNav() {
+						document.getElementById("mySidenav").style.width = "270px";
 					}
-				}
+					function closeNav() {
+						document.getElementById("mySidenav").style.width = "0";
+					}
 				</script>
-				<br/>
-			<br/>
-			<br/>
-			<div style="float:right">
-				<?php
-					include 'button.php';
-				?>
 			</div>
+			<br/>
+			<br/>
+			<br/>
+			<hr>
+		</div>
 	</body>
 </html>
