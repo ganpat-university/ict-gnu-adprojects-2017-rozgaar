@@ -48,6 +48,7 @@
 				margin:12% auto;
 				padding: :20px;
 				width: 30%;
+				border-radius:7%;
 				height:auto;
 				box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2),0 7px 20px 0 rgba(0, 0, 0, 0.2);
 				animation-name: modalopen;
@@ -84,13 +85,22 @@
 				input[type=submit]{
 					background-color:#172a55;
 					font-family:Century Gothic;
+					cursor: pointer;
 					color:white;
 					width:65px;
 					height:30px;
-					border-radius:3px;
+					outline: none;
+					border-radius:15%;
 					border:none;
 				}
 
+				input[type=submit]:hover
+				{
+					background-color: white;
+					color: #172a55;
+					transition: 0.4s;
+					border:none;
+				}
 				button:focus{
 					outline: none;
 				}
