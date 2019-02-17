@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.1
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 11, 2019 at 03:44 AM
--- Server version: 10.1.33-MariaDB
--- PHP Version: 7.2.6
+-- Generation Time: Feb 17, 2019 at 11:30 AM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -48,7 +48,7 @@ CREATE TABLE `companytable` (
 --
 
 INSERT INTO `companytable` (`Sr. No.`, `Name`, `OwnerName`, `Address`, `City`, `State`, `Pincode`, `Email`, `Phone`, `CRN`, `Username`, `Password`) VALUES
-(1, 'Hello', 'Hello', 'Hello', 'Hello', 'Gujarat', '382024', 'abc@gmail.com', '9999988888', '9999988888', 'HELLO', 'HELLO');
+(0, 'abc', 'abc', 'abc', 'abc', 'Dadra and Nagar Haveli', '382014', 'ritulchavda@yahoo.com', '9999988888', '9999988888', 'ritul', 'ritul');
 
 -- --------------------------------------------------------
 
@@ -67,14 +67,6 @@ CREATE TABLE `employeetable` (
   `Password` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `employeetable`
---
-
-INSERT INTO `employeetable` (`Sr. No.`, `Name`, `Email`, `Address`, `Phone`, `Aadhar`, `Username`, `Password`) VALUES
-(7, 'hello', 'abc@gmail.com', 'asdfgh123456', '1234567890', '1234567890123874', 'ritul', 'hello'),
-(8, 'Ritul Chavda', 'ritulchavda.rsc@gmail.com', 'Gandhinagar', '9714710162', '9999888877776666', 'ritul', 'ritul');
-
 -- --------------------------------------------------------
 
 --
@@ -92,33 +84,35 @@ CREATE TABLE `individualtable` (
   `Password` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `individualtable`
+-- Table structure for table `postjobtable`
 --
 
-INSERT INTO `individualtable` (`Sr. No.`, `Name`, `Email`, `Phone`, `Aadhar`, `Skill`, `Username`, `Password`) VALUES
-(1, 'ritul', 'abc@gmail.com', '9714710162', '1234567890123456', 'PHP and HTML', 'hello', 'hello');
+CREATE TABLE `postjobtable` (
+  `Sr. No.` int(225) NOT NULL,
+  `Job_Title` varchar(225) NOT NULL,
+  `Job_Deadline` varchar(225) NOT NULL,
+  `Amount` int(225) NOT NULL,
+  `Job_Description` varchar(225) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `postjobtable`
+--
+
+INSERT INTO `postjobtable` (`Sr. No.`, `Job_Title`, `Job_Deadline`, `Amount`, `Job_Description`) VALUES
+(1, 'ritul', 'ritul', 10, 'ritul');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `companytable`
+-- Indexes for table `postjobtable`
 --
-ALTER TABLE `companytable`
-  ADD PRIMARY KEY (`Sr. No.`);
-
---
--- Indexes for table `employeetable`
---
-ALTER TABLE `employeetable`
-  ADD PRIMARY KEY (`Sr. No.`);
-
---
--- Indexes for table `individualtable`
---
-ALTER TABLE `individualtable`
+ALTER TABLE `postjobtable`
   ADD PRIMARY KEY (`Sr. No.`);
 
 --
@@ -126,21 +120,9 @@ ALTER TABLE `individualtable`
 --
 
 --
--- AUTO_INCREMENT for table `companytable`
+-- AUTO_INCREMENT for table `postjobtable`
 --
-ALTER TABLE `companytable`
-  MODIFY `Sr. No.` int(225) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `employeetable`
---
-ALTER TABLE `employeetable`
-  MODIFY `Sr. No.` int(225) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT for table `individualtable`
---
-ALTER TABLE `individualtable`
+ALTER TABLE `postjobtable`
   MODIFY `Sr. No.` int(225) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
