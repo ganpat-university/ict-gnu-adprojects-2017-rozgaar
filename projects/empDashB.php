@@ -45,10 +45,31 @@
 				width: 100%;
 				height: 65%;
 			}
+			#anchortable{
+				color: #172a55;
+			}
+
+			#detailspane{
+				background-color:#172a55;
+				font-family:Century Gothic;
+				color:white;
+				width:65px;
+				height:25px;
+				border-radius:3px;
+				border:none;
+			}
+			#detailspane:hover {
+				cursor:pointer;
+				background-color: white;
+				color: #172a55;
+				border-radius: 3px;
+				transition: 0.1s;
+			}
+
 		</style>
 	</head>
 	<body>
-		<div class="main">
+		<section class="main">
 			<div id="header">
 				<?php
 					include 'header1.php';
@@ -69,24 +90,43 @@
 					<br/>
 					<a href="contactUS.php">Contact Us</a>
 				</div>
-				<div id="content">
-					<span style="font-size:30px;cursor:pointer" onclick="openNav()">&nbsp;&nbsp;&nbsp;&#9776;</span>	<!--&#9776; is used for toggle sign.-->
-					&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:30px;text-align:center">Employee Dashbaord</span>
-				</div>
-				<script>
-					window.addEventListener('click',outsideClick);
-					function openNav() {
-						document.getElementById("mySidenav").style.width = "270px";
-					}
-					function closeNav() {
-						document.getElementById("mySidenav").style.width = "0";
-					}
-				</script>
+      </div>
+			<div id="content">
+				<div style="font-size:30px;cursor:pointer" onclick="openNav()">&nbsp;&nbsp;&#9776;&nbsp; Employee Dashboard</div>	<!--&#9776; is used for toggle sign.-->
 			</div>
-			<br/>
-			<br/>
-			<br/>
-			<hr>
-		</div>
+		</section>
+    <section style="margin-top: 0%;height: 100%;">
+			<fieldset style="border-radius:5px;width:25%;height:auto;margin-left:37%;">
+        <table style="margin-left:10px;">
+          <tr style="font-size:20px;">
+            <th width="100px">Job Title</th>
+            <th width="100px">Amount</th>
+						<th></th>
+          </tr>
+          <?php
+            require 'Connection.php';
+            $sql = "select Job_Title,Amount FROM postjobtable";
+            $result = $con->query($sql);
+            if($result->num_rows > 0){
+              while($row = $result->fetch_assoc()){
+                echo "<tr style='text-align:center;'><td width='100px'>".$row["Job_Title"]."</td><td width='100px'>".$row["Amount"]."</td><td width='100px'>&nbsp;&nbsp;&nbsp;<button id='detailspane'>Details</button></td></tr>";
+              }
+              echo "</table>";
+            }
+            else{
+              echo "Else";
+            }
+          ?>
+        </table>
+			</fieldset>
+    </section>
+    <script>
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "270px";
+      }
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+      }
+    </script>
 	</body>
 </html>

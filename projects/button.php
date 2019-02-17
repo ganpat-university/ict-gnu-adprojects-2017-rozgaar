@@ -15,7 +15,6 @@
 				background-color: #172a55;
 				color: white;
 				border: none;
-
 				width: 55px;
 				height: 55px;
 				bottom: 20px;
@@ -35,8 +34,7 @@
 			.postBtn:hover span{
 				display:none;
 			}
-			.postBtn:hover:after
-			{
+			.postBtn:hover:after{
 				content:"Post";
 			}
 			.modal
@@ -51,14 +49,13 @@
 				overflow: auto;
 				background-color: rgba(0, 0, 0, 0.5);
 			}
-
 			.modal-content
 			{
 				background-color: #ffffff;
 				margin:12% auto;
+				border-radius: 7%;
 				padding: :20px;
 				width: 30%;
-				border-radius:7%;
 				height:auto;
 				box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2),0 7px 20px 0 rgba(0, 0, 0, 0.2);
 				animation-name: modalopen;
@@ -75,7 +72,6 @@
 				text-decoration: none;
 				cursor:pointer;
 			}
-
 			@keyframes modalopen {
 				from{opacity: 0}
 				to{opacity: 1}
@@ -90,64 +86,53 @@
 				input:focus{
 					outline:none;
 				}
-
-
 				input[type=submit]{
 					background-color:#172a55;
 					font-family:Century Gothic;
-					cursor: pointer;
 					color:white;
 					width:65px;
 					height:30px;
-					outline: none;
-					border-radius:15%;
-					border:none;
-				}
-
-				input[type=submit]:hover
-				{
-					background-color: white;
-					color: #172a55;
-					transition: 0.4s;
+					border-radius:3px;
 					border:none;
 				}
 				button:focus{
 					outline: none;
 				}
-
 		</style>
 	</head>
 	<body>
 		<div id="simpleModal" class="modal">
 			<div class = "modal-content">
 				<span id="closeBtn" class="closebtn">&times;&nbsp;</span>
-					<h1>Post Job</h1>
-				<form>
+				<form method="POST">
 					<table style="margin:0 auto;">
 						<tr>
-						<td colspan="2">Job Topic:</td>
-						<td colspan="2"><input type="text" placeholder="Please Enter Job Topic Here" style="width:100%" required></td>
-					</tr>
-					<tr><td><br/></td></tr>
+							<th><h1 style="text-align: center;">Post Job</h1></th>
+						</tr>
+						<tr>
+							<td colspan="2">Job Topic:</td>
+							<td colspan="2"><input type="text" placeholder="Please Enter Job Topic Here" style="width:100%" name="jobtitle" required></td>
+						</tr>
+						<tr><td><br/></td></tr>
 
-				<tr>
-				<td colspan="2">Job Deadline:</td>
-				<td colspan="2"><input type="text" placeholder="Please Enter Deadline" style="width:100%" required></td>
-				</tr>
-				<tr><td><br/></td></tr>
-				<tr>
-				<td colspan="2">Amount:</td>
-				<td colspan="2"><input type="text" placeholder="Please Enter Amount" style="width:100%" required></td>
-				</tr>
-				<tr><td><br/></td></tr>
-				<tr>
-				<td colspan="2">Job Descrpition:</td>
-				<td colspan="2"><textarea  rows="4" cols="30" maxlength="225" required	style="resize: none;" placeholder="Please enter description about the job(maximum 225 character)"></textarea></td>
-			</tr>
-			<tr><td><br/></td></tr>
-				<tr>
-					<td colspan="4" align="center"><input type="submit"  name="submit" value="Submit"></td>
-				</tr>
+						<tr>
+						<td colspan="2">Job Deadline:</td>
+						<td colspan="2"><input type="text" placeholder="Please Enter Deadline" style="width:100%" name="jobdeadline" required></td>
+						</tr>
+						<tr><td><br/></td></tr>
+						<tr>
+						<td colspan="2">Amount:</td>
+						<td colspan="2"><input type="text" placeholder="Please Enter Amount" style="width:100%" name="amount" pattern="[0-9]{1,}" required></td>
+						</tr>
+						<tr><td><br/></td></tr>
+						<tr>
+						<td colspan="2">Job Descrpition:</td>
+						<td colspan="2"><textarea  rows="4" cols="30" name="jobdescription" maxlength="225"	style="resize: none;font-family: Century Gothic;" placeholder="Please enter description about the job(maximum 225 character)" required></textarea></td>
+						</tr>
+						<tr><td><br/></td></tr>
+						<tr>
+							<td colspan="4" align="center"><input type="submit" id="submit" name="submit" value="Submit"></td>
+						</tr>
 
 					</table>
 				</form>
@@ -165,7 +150,6 @@
 		var modalBtn = document.getElementById('modalBtn');
 		//get close button
 		var closeBtn = document.getElementById('closeBtn');
-
 		modalBtn.addEventListener('click',openModal);
 		closeBtn.addEventListener('click',closeModal);
 		window.addEventListener('click',outsideClick);
@@ -173,18 +157,41 @@
 		{
 			modal.style.display = 'block';
 		}
-
 		function closeModal()
 		{
 			modal.style.display = 'none';
 		}
-
 		function outsideClick(e)
 		{
 			if(e.target == modal)
 			modal.style.display = 'none';
 		}
-
 		</script>
+
+		<?php
+			function AddJobData(){
+				require 'Connection.php';
+
+				$topic = $_POST['jobtitle'];
+				$deadline = $_POST['jobdeadline'];
+				$amount = $_POST['amount'];
+				$description = $_POST['jobdescription'];
+
+				$sql = "INSERT INTO postjobtable(Job_Title,Job_Deadline,Amount,Job_Description)
+						VALUES ('$topic','$deadline','$amount','$description')";
+
+				if ($con->query($sql) === TRUE) {
+						echo 'Done';
+				}
+				else{
+					echo 'Error!';
+				}
+			}
+			if(isset($_POST['submit']))
+			{
+				AddJobData();
+			}
+			?>
+
 	</body>
 </html>
