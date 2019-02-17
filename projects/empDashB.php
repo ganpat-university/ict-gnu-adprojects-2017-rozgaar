@@ -42,13 +42,13 @@
 				margin-left: 50px;
 			}
 			#content{
-				width: 100%;
-				height: 65%;
+				width: auto;
+				height: auto;
+				float: left;
 			}
 			#anchortable{
 				color: #172a55;
 			}
-
 			#detailspane{
 				background-color:#172a55;
 				font-family:Century Gothic;
@@ -65,7 +65,6 @@
 				border-radius: 3px;
 				transition: 0.1s;
 			}
-
 		</style>
 	</head>
 	<body>
@@ -96,7 +95,8 @@
 			</div>
 		</section>
     <section style="margin-top: 0%;height: 100%;">
-			<fieldset style="border-radius:5px;width:25%;height:auto;margin-left:37%;">
+			<fieldset  id="le"  style="width:100%;height:100%;border:none;">
+			<fieldset style="border-radius:5px;width:25%;height:auto;margin-left:37%;margin-top:85px;">
         <table style="margin-left:10px;">
           <tr style="font-size:20px;">
             <th width="100px">Job Title</th>
@@ -119,14 +119,26 @@
           ?>
         </table>
 			</fieldset>
+		</fieldset>
     </section>
     <script>
-      function openNav() {
-        document.getElementById("mySidenav").style.width = "270px";
+    window.addEventListener('click',outsideClick);
+    var wind = document.getElementById('le');
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "270px";
+      document.getElementById("emp").style.margin = "10%";
+    }
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+      document.getElementById("emp").style.margin = "0";
+    }
+    function outsideClick(e)
+    {
+      if(e.target == wind)
+      {
+          document.getElementById("mySidenav").style.width = "0";
       }
-      function closeNav() {
-        document.getElementById("mySidenav").style.width = "0";
-      }
+    }
     </script>
 	</body>
 </html>
