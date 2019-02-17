@@ -76,7 +76,7 @@
 				from{opacity: 0}
 				to{opacity: 1}
 			}
-				input[type=text]{
+				input[type=text],[type=date]{
 					width:auto;
 					border-radius:3px;
 					border : none;
@@ -117,7 +117,7 @@
 
 						<tr>
 						<td colspan="2">Job Deadline:</td>
-						<td colspan="2"><input type="text" placeholder="Please Enter Deadline" style="width:100%" name="jobdeadline" required></td>
+						<td colspan="2"><input type="date" placeholder="Please Enter Deadline" style="width:100%" name="jobdeadline" required></td>
 						</tr>
 						<tr><td><br/></td></tr>
 						<tr>
