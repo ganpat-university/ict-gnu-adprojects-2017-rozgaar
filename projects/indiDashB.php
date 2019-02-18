@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+	session_start();
+	$user = 	$_SESSION['user'];
+ ?>
 <html>
 	<head>
 		<style>
@@ -17,7 +21,7 @@
 				transition: 0.3s;
 				padding-top: 60px;
 			}
-			.sidenav a {
+			.sidenav a,p {
 				padding: 8px 8px 8px 0px;
 				text-decoration: none;
 				font-size: 25px;
@@ -42,13 +46,40 @@
 				margin-left: 50px;
 			}
 			#content{
-				width: 100%;
-				height: 65%;
+				width: auto;
+				height: auto;
+				float: left;
+				transition: margin-left .5s;
+			}
+			#anchortable{
+				color: #172a55;
+			}
+			#detailspane{
+				background-color:#172a55;
+				font-family:Century Gothic;
+				color:white;
+				width:65px;
+				height:25px;
+				border-radius:3px;
+				border:none;
+			}
+			#detailspane:hover {
+				cursor:pointer;
+				background-color: white;
+				color: #172a55;
+				border-radius: 3px;
+				transition: 0.1s;
+			}
+			#setting
+			{
+				margin: auto;
+				display: none;
 			}
 		</style>
 	</head>
 	<body>
-		<div class="main">
+		<section class="main">
+			<section>
 			<div id="header">
 				<?php
 					include 'header1.php';
@@ -56,42 +87,86 @@
 			</div>
 			</br>
 			<div style="float:left" width="90%">
-				<div id="mySidenav" class="sidenav">
+				<div id="mySidenav" class="sidenav" style="text-align:center;">
+					<div id="Normal">
 					<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>	<!--&times; is used for 'x' sign.-->
 					<br/>
 					<br/>
 					<br/>
-					<a href="#">Hi, #Individual</a>
+					<p>Hi, <?php echo $user; ?></p>
 					<br/>
 					<a href="#">History</a>
 					<br/>
-					<a href="#">Setting</a>
+					<a href="#" onclick="return Settingpanel();">Setting</a>
 					<br/>
 					<a href="contactUS.php">Contact Us</a>
 				</div>
-				<div id="content">
-					<span style="font-size:30px;cursor:pointer" onclick="openNav()">&nbsp;&nbsp;&nbsp;&#9776;</span>	<!--&#9776; is used for toggle sign.-->
-					&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:30px;text-align:center">Individual Dashbaord</span>
+					<div id="setting">
+						<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>	<!--&times; is used for 'x' sign.-->
+						<br/>
+						<br/>
+						<br/>
+						<p>Hi, <?php echo $user; ?></p>
+						<br/>
+						<a href="#">Change Password</a>
+						<br/>
+						<a href="#">Edit Profile</a>
+						<br/>
+						<a href="contactUS.php">Delete Account</a>
+						<br/>
+						<a href="#" onclick="return Normalpanel();">Back</a>
+					</div>
 				</div>
-				<script>
-					window.addEventListener('click',outsideClick);
-					function openNav() {
-						document.getElementById("mySidenav").style.width = "270px";
-					}
-					function closeNav() {
-						document.getElementById("mySidenav").style.width = "0";
-					}
-				</script>
+      </div>
+			<div id="content">
+				<div style="font-size:30px;cursor:pointer" onclick="openNav()">&nbsp;&nbsp;&#9776;&nbsp; Individual Dashboard</div>	<!--&#9776; is used for toggle sign.-->
 			</div>
-			<br/>
-			<br/>
-			<br/>
-			<hr>
+		</section>
+		<section>
 			<div style="float:right">
 				<?php
 					include 'button.php';
 				?>
 			</div>
-		</div>
+		</section>
+	</section>
+    <script>
+    window.addEventListener('click',outsideClick);
+		var SettingPanel = document.getElementById('setting');
+		var NormalPanel = document.getElementById('Normal');
+		var wind = document.getElementById('le');
+		var content =  document.getElementById('content');
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "270px";
+      document.getElementById('content').style.marginLeft = "270px";
+    }
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
+      document.getElementById('content').style.marginLeft = "0px";
+			NormalPanel.style.display = "block";
+			SettingPanel.style.display = "none";
+    }
+    function outsideClick(e)
+    {
+      if(e.target == wind)
+      {
+          document.getElementById("mySidenav").style.width = "0";
+				document.getElementById('content').style.marginLeft = "0px";
+				NormalPanel.style.display = "block";
+				SettingPanel.style.display = "none";
+      }
+    }
+		function Settingpanel()
+		{
+			 NormalPanel.style.display = "none";
+			 SettingPanel.style.display = "block";
+		}
+		function Normalpanel()
+		{
+			 NormalPanel.style.display = "block";
+			 SettingPanel.style.display = "none";
+		}
+    </script>
+
 	</body>
 </html>
