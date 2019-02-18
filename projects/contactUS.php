@@ -5,7 +5,14 @@
 	</head>
 	<body>
 		<?php
-			include'header.php';
+			session_start();
+			if(isset($_SESSION['user'])){
+				echo "\n\n\n\n\n\n".$_SESSION['user'];
+				include 'header1.php';
+			}
+		else{
+				include 'header.php';
+			}
 		?>
 		<div class="content" align="Left">
 			<img src="ict.jpg" width="20%" height="125px" align="Left" style="margin-left:20px;">

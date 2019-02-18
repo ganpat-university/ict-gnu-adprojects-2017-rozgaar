@@ -20,10 +20,12 @@
 						<p>Password &nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							<input type="password" name="pass" required/></p>
 						<br/>
+						<br/>
+						<br/>
+						<br/>
 						<input type="submit" id="btn" value="Login" name="submit">
 						<br/>
 						<br/>
-						<p>Forget Password ?</p>
 				</fieldset>
 			</form>
 		</div>
@@ -54,7 +56,7 @@
 			{
 				if($Password != $row['Password'])
 				{
-					header("Location:login.php?error=wrongpass1");
+					header("Location:login.php?error=wrongpass");
 					exit();
 				}
 				else if($Password == $row['Password'] )
@@ -66,7 +68,7 @@
 					exit();
 				}
 				else {
-					header("Location:login.php?error=wrongpass1");
+					header("Location:login.php?error=wrongpass");
 					exit();
 				}
 			}
@@ -83,7 +85,7 @@
 					{
 						if($Password != $row['Password'])
 						{
-							header("Location:login.php?error=wrongpass2");
+							header("Location:login.php?error=wrongpass");
 							exit();
 						}
 						else if($Password == $row['Password'] )
@@ -95,7 +97,7 @@
 								exit();
 						}
 						else {
-							header("Location:login.php?error=wrongpass2");
+							header("Location:login.php?error=wrongpass");
 							exit();
 						}
 					}
@@ -112,7 +114,7 @@
 							{
 								if($Password != $row['Password'])
 								{
-									header("Location:login.php?error=wrongpass3");
+									header("Location:login.php?error=wrongpass");
 									exit();
 								}
 								else if($Password == $row['Password'] )
@@ -124,7 +126,7 @@
 										exit();
 								}
 								else {
-									header("Location:login.php?error=wrongpass3");
+									header("Location:login.php?error=wrongpass");
 									exit();
 								}
 							}
