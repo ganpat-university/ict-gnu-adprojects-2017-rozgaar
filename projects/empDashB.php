@@ -50,7 +50,6 @@
 				height: auto;
 				float: left;
 				transition: margin-left .5s;
-
 			}
 			#anchortable{
 				color: #172a55;
@@ -71,15 +70,11 @@
 				border-radius: 3px;
 				transition: 0.1s;
 			}
-
 			#setting
 			{
 				margin: auto;
 				display: none;
 			}
-
-
-
 		</style>
 	</head>
 	<body>
@@ -92,7 +87,7 @@
 			</div>
 			</br>
 			<div style="float:left" width="90%">
-				<div id="mySidenav" class="sidenav">
+				<div id="mySidenav" class="sidenav" style="text-align:center;">
 					<div id="Normal">
 					<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>	<!--&times; is used for 'x' sign.-->
 					<br/>
