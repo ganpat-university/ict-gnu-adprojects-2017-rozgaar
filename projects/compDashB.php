@@ -99,6 +99,14 @@
 				animation-name: modalopen;
 				animation-duration: 1s;
 			}
+			input[type=text],input[type=password],input[type=email]{
+				width:auto;
+				border-radius:3px;
+				border : none;
+				border-bottom :1px solid #172a55;
+				font-family: Century Gothic;
+			}
+			}
 			input[type=submit]{
 				background-color:#172a55;
 				font-family:Century Gothic;
@@ -107,6 +115,12 @@
 				height:30px;
 				border-radius:3px;
 				border:none;
+			}
+			input[type=number]{
+				font-family: Century Gothic;
+				border : none;
+				border-bottom :1px solid #172a55;
+				border-radius:3px;
 			}
 		</style>
 	</head>
@@ -165,7 +179,7 @@
 
 		<?php
 
-			
+
 				require 'Connection.php';
 
 				$sql = "Select * from companytable where Username = ?";
@@ -181,6 +195,33 @@
 				if($row = mysqli_fetch_assoc($result)){
 
 				}
+
+				function UpdateAccout()
+			 	{
+			 		require 'Connection.php';
+					$name = $_POST['name'];
+					$oname = $_POST['oname'];
+					$addr = $_POST['addr'];
+					$city = $_POST['city'];
+					$state = $_POST['state'];
+					$pincode = $_POST['pincode'];
+					$email = $_POST['email'];
+					$phone = $_POST['phone'];
+
+					$username = $_POST['username'];
+
+			 			$sql = "update companytable set Name='$name',OwnerName='$oname',Address='$addr',City='$city',State='$state',Pincode='$pincode',Email='$email',Phone='$phone',Username='$username' where Username='".$_SESSION['user']."'";
+			 			if ($con->query($sql) === TRUE) {
+			 				echo 'Ok';
+			 			}
+			 			else{
+			 				echo 'Error!';
+			 			}
+			 	}
+			 	if(isset($_POST['updateacc']))
+			 	{
+			 		UpdateAccout();
+			 	}
 
 
 		?>
@@ -211,7 +252,7 @@
 						<tr><td><br/></td></tr>
 						<tr>
 							<td colspan="2">City : </td>
-							<td colspan="2"><input type="text" name="city" placeholder="City" required></td>
+							<td colspan="2"><input type="text" name="city" placeholder="City" value="<?php echo $row['City']; ?>" required></td>
 						</tr>
 						<tr><td><br/></td></tr>
 						<tr>
@@ -260,26 +301,26 @@
 						<tr><td><br/></td></tr>
 						<tr>
 							<td colspan="2">Pin Code : </td>
-							<td colspan="2"><input type="text" name="pincode" placeholder="Pin Code" pattern="[0-9]{6}" required></td>
+							<td colspan="2"><input type="text" name="pincode" placeholder="Pin Code" pattern="[0-9]{6}" value="<?php echo $row['Pincode']; ?>" required></td>
 						</tr>
 						<tr><td><br/></td></tr>
 						<tr>
 							<td colspan="2">Email ID : </td>
-							<td colspan="2"><input type="email" name="email" placeholder="Email ID" required></td>
+							<td colspan="2"><input type="email" name="email" placeholder="Email ID" value="<?php echo $row['Email']; ?>" required></td>
 						</tr>
 						<tr><td><br/></td></tr>
 						<tr>
 							<td colspan="2">Phone No. : </td>
-							<td colspan="2"><input type="text" name="phone" placeholder="Phone Number" pattern="[0-9]{10}" required></td>
+							<td colspan="2"><input type="text" name="phone" placeholder="Phone Number" pattern="[0-9]{10}" value="<?php echo $row['Phone']; ?>" required></td>
 						</tr>
 						<tr><td><br/></td></tr>
 						<tr>
 							<td colspan="2">Username : </td>
-								<td colspan="2"><input type="text" name="username" placeholder="Username" required></td>
+								<td colspan="2"><input type="text" name="username" placeholder="Username" value="<?php echo $row['Username']; ?>" required></td>
 						</tr>
 						<tr><td><br/></td></tr>
 						<tr align="center">
-							<td colspan="4" align="center"><input type="submit" name="update" id="updatebtn" value="update"></td>
+							<td colspan="4" align="center"><input type="submit" name="updateacc" id="updatebtn" value="update"></td>
 						</tr>
 	        </table>
 	      </form>
