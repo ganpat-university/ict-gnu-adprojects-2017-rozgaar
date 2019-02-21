@@ -535,7 +535,7 @@
 				$username = $_POST['uname'];
 
 
-					$sql = "update employeetable set Name='$name',Email='$email',Address='$addr',Phone='$phone',Aashar='$aadhar',Username='$username' where Username='".$_SESSION['user']."'";
+					$sql = "update employeetable set Name='$name',Email='$email',Address='$address',Phone='$phone',Aadhar='$aadhar',Username='$username' where Username='".$_SESSION['user']."'";
 					if ($con->query($sql) === TRUE) {
 
 					}

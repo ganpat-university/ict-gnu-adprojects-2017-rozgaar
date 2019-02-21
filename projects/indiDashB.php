@@ -364,10 +364,10 @@
 			 		require 'Connection.php';
 					$name = $_POST['fname'];
 					$email = $_POST['email'];
-					$phone = $_POST['phone'];
+					$phone = $_POST['phno'];
 					$aadhar = $_POST['ano'];
 					$skill = $_POST['skill'];
-					$username = $_POST['username'];
+					$username = $_POST['uname'];
 
 			 			$sql = "update individualtable set Name='$name',Email='$email',Phone='$phone',Aadhar='$aadhar',Skill='$skill',Username='$username' where Username='".$_SESSION['user']."'";
 			 			if ($con->query($sql) === TRUE) {
