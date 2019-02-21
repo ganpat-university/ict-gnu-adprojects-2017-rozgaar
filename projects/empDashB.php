@@ -483,6 +483,7 @@
 																		function closeDesModal()
 																		{
 																			desmodal.style.display = 'none';
+																			history.replaceState(null,null,\"empDashB.php\");
 																		}</script>";
 
 												}
@@ -537,10 +538,10 @@
 
 					$sql = "update employeetable set Name='$name',Email='$email',Address='$address',Phone='$phone',Aadhar='$aadhar',Username='$username' where Username='".$_SESSION['user']."'";
 					if ($con->query($sql) === TRUE) {
-
+						
 					}
 					else{
-						echo 'Error!';
+						echo "error";
 					}
 			}
 			if(isset($_POST['updateacc']))
