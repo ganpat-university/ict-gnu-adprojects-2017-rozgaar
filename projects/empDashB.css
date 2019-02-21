@@ -1,0 +1,239 @@
+body {
+  font-family: Century Gothic;
+}
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #172a55;
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+}
+.sidenav a,p {
+  padding: 8px 8px 8px 0px;
+  text-decoration: none;
+  font-size: 25px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+  width: auto;
+  height: 30px;
+}
+.sidenav a:hover {
+  background-color: white;
+  color: #172a55;
+}
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 0px;
+  padding-left: 8px;
+  width: 50px;
+  height: 45px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+#content{
+  width: auto;
+  height: auto;
+  float: left;
+  transition: margin-left .5s;
+}
+#anchortable{
+  color: #172a55;
+}
+.detailspane{
+  background-color:#172a55;
+  font-family:Century Gothic;
+  color:white;
+  width:65px;
+  height:25px;
+  border-radius:3px;
+  border:none;
+}
+.detailspane:hover {
+  cursor:pointer;
+  background-color: white;
+  color: #172a55;
+  border-radius: 3px;
+  transition: 0.1s;
+}
+#setting
+{
+  margin: auto;
+  display: none;
+}
+.modal
+{
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.modal-content
+{
+  background-color: #ffffff;
+  margin:12% auto;
+  border-radius: 7%;
+  padding: :20px;
+  width: 30%;
+  height:auto;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2),0 7px 20px 0 rgba(0, 0, 0, 0.2);
+  animation-name: modalopen;
+  animation-duration: 1s;
+}
+.cross
+{
+  color: #ccc;
+  float: right;
+  font-size: 30px;
+}
+.cross:hover,.cross:focus{
+  color: #000;
+  text-decoration: none;
+  cursor:pointer;
+}
+.editProfile_modal
+{
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.editProfile_modal-content
+{
+  background-color: #ffffff;
+  margin: 4% auto;
+  border-radius: 5%;
+  padding: :20px;
+  width: 30%;
+  height:auto;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2),0 7px 20px 0 rgba(0, 0, 0, 0.2);
+  animation-name: modalopen;
+  animation-duration: 1s;
+}
+.Deletemodal
+{
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.Deletemodal-content
+{
+  background-color: #ffffff;
+  margin:12% auto;
+  border-radius: 5%;
+  padding: :20px;
+  width: 30%;
+  height:auto;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2),0 7px 20px 0 rgba(0, 0, 0, 0.2);
+  animation-name: modalopen;
+  animation-duration: 1s;
+}
+#deltxt
+{
+  color: #172a55;
+}
+.closebtn
+{
+  color: #ccc;
+  float: right;
+  font-size: 30px;
+}
+.closebtn:hover,.closebtn:focus{
+  color: #000;
+  text-decoration: none;
+  cursor:pointer;
+}
+.descriptionmodal
+{
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.description-modal-content
+{
+  background-color: #ffffff;
+  margin:12% auto;
+  border-radius: 7%;
+  padding: :20px;
+  width: 30%;
+  height:auto;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2),0 7px 20px 0 rgba(0, 0, 0, 0.2);
+  animation-name: modalopen;
+  animation-duration: 1s;
+}
+.desclosebtn
+{
+  color: #ccc;
+  float: right;
+  font-size: 30px;
+}
+.titlebtn{
+  cursor:pointer;
+  color:#172a55;
+  background-color: white;
+  border-radius:3px;
+  width:100%;
+  height:24px;
+  background: none;
+  border:none;
+}
+.titlebtn:hover{
+  color:white;
+  background-color:#172a55;
+}
+.desclosebtn:hover,.desclosebtn:focus{
+  color: #000;
+  text-decoration: none;
+  cursor:pointer;
+}
+@keyframes modalopen {
+  from{opacity: 0}
+  to{opacity: 1}
+}
+input[type=text]{
+  width:auto;
+  border-radius:3px;
+  border : none;
+  border-bottom :1px solid #172a55;
+  font-family: Century Gothic;
+}
+input:focus{
+  outline:none;
+}
+input[type=submit],button{
+  background-color:#172a55;
+  font-family:Century Gothic;
+  color:white;
+  width:65px;
+  height:30px;
+  border-radius:3px;
+  border:none;
+}

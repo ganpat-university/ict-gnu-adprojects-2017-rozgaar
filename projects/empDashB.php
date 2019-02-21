@@ -4,7 +4,6 @@
 	$user = $_SESSION['user'];
  ?>
  <?php
-
   function DeleteAccout()
   {
  	 require 'Connection.php';
@@ -22,8 +21,6 @@
   {
  	 DeleteAccout();
   }
-
-
   function Adddata()
   {
  	 require 'Connection.php';
@@ -46,275 +43,19 @@
  		 else {
  				 echo '<span style = "color:Red;">Password does not match</span>';
  		 }
-
  	 }
  	 else {
-
  			 echo '<span style = "color:Red;">Password is Wrong</span>';
-
  	 }
   }
   if(isset($_POST['passchg']))
   {
  	 Adddata();
   }
-
  ?>
 <html>
 	<head>
-		<style>
-			body {
-				font-family: Century Gothic;
-			}
-			.sidenav {
-				height: 100%;
-				width: 0;
-				position: fixed;
-				z-index: 1;
-				top: 0;
-				left: 0;
-				background-color: #172a55;
-				overflow-x: hidden;
-				transition: 0.3s;
-				padding-top: 60px;
-			}
-			.sidenav a,p {
-				padding: 8px 8px 8px 0px;
-				text-decoration: none;
-				font-size: 25px;
-				color: white;
-				display: block;
-				transition: 0.3s;
-				width: auto;
-				height: 30px;
-			}
-			.sidenav a:hover {
-				background-color: white;
-				color: #172a55;
-			}
-			.sidenav .closebtn {
-				position: absolute;
-				top: 0;
-				right: 0px;
-				padding-left: 8px;
-				width: 50px;
-				height: 45px;
-				font-size: 36px;
-				margin-left: 50px;
-			}
-			#content{
-				width: auto;
-				height: auto;
-				float: left;
-				transition: margin-left .5s;
-
-			}
-			#anchortable{
-				color: #172a55;
-			}
-			.detailspane{
-				background-color:#172a55;
-				font-family:Century Gothic;
-				color:white;
-				width:65px;
-				height:25px;
-				border-radius:3px;
-				border:none;
-			}
-			.detailspane:hover {
-				cursor:pointer;
-				background-color: white;
-				color: #172a55;
-				border-radius: 3px;
-				transition: 0.1s;
-			}
-
-			#setting
-			{
-				margin: auto;
-				display: none;
-
-			}
-
-			.modal
-			{
-				display: none;
-				position: fixed;
-				z-index: 1;
-				left: 0;
-				top: 0;
-				height: 100%;
-				width: 100%;
-				overflow: auto;
-				background-color: rgba(0, 0, 0, 0.5);
-			}
-			.modal-content
-			{
-				background-color: #ffffff;
-				margin:12% auto;
-				border-radius: 7%;
-				padding: :20px;
-				width: 30%;
-				height:auto;
-				box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2),0 7px 20px 0 rgba(0, 0, 0, 0.2);
-				animation-name: modalopen;
-				animation-duration: 1s;
-			}
-			.cross
-			{
-				color: #ccc;
-				float: right;
-				font-size: 30px;
-			}
-			.cross:hover,.cross:focus{
-				color: #000;
-				text-decoration: none;
-				cursor:pointer;
-			}
-
-			.editProfile_modal
-			{
-				display: none;
-				position: fixed;
-				z-index: 1;
-				left: 0;
-				top: 0;
-				height: 100%;
-				width: 100%;
-				overflow: auto;
-				background-color: rgba(0, 0, 0, 0.5);
-			}
-			.editProfile_modal-content
-			{
-				background-color: #ffffff;
-				margin: 4% auto;
-				border-radius: 5%;
-				padding: :20px;
-				width: 30%;
-				height:auto;
-				box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2),0 7px 20px 0 rgba(0, 0, 0, 0.2);
-				animation-name: modalopen;
-				animation-duration: 1s;
-			}
-			.Deletemodal
-			{
-				display: none;
-				position: fixed;
-				z-index: 1;
-				left: 0;
-				top: 0;
-				height: 100%;
-				width: 100%;
-				overflow: auto;
-				background-color: rgba(0, 0, 0, 0.5);
-			}
-			.Deletemodal-content
-			{
-				background-color: #ffffff;
-				margin:12% auto;
-				border-radius: 5%;
-				padding: :20px;
-				width: 30%;
-				height:auto;
-				box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2),0 7px 20px 0 rgba(0, 0, 0, 0.2);
-				animation-name: modalopen;
-				animation-duration: 1s;
-			}
-
-			#deltxt
-			{
-				color: #172a55;
-			}
-
-			.closebtn
-			{
-				color: #ccc;
-				float: right;
-				font-size: 30px;
-			}
-			.closebtn:hover,.closebtn:focus{
-				color: #000;
-				text-decoration: none;
-				cursor:pointer;
-			}
-
-			.descriptionmodal
-			{
-				display: none;
-				position: fixed;
-				z-index: 1;
-				left: 0;
-				top: 0;
-				height: 100%;
-				width: 100%;
-				overflow: auto;
-				background-color: rgba(0, 0, 0, 0.5);
-			}
-			.description-modal-content
-			{
-				background-color: #ffffff;
-				margin:12% auto;
-				border-radius: 7%;
-				padding: :20px;
-				width: 30%;
-				height:auto;
-				box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2),0 7px 20px 0 rgba(0, 0, 0, 0.2);
-				animation-name: modalopen;
-				animation-duration: 1s;
-			}
-			.desclosebtn
-			{
-				color: #ccc;
-				float: right;
-				font-size: 30px;
-			}
-			.titlebtn{
-				cursor:pointer;
-				color:#172a55;
-				background-color: white;
-				border-radius:3px;
-				width:100%;
-				height:24px;
-				background: none;
-				border:none;
-			}
-			.titlebtn:hover{
-				color:white;
-				background-color:#172a55;
-			}
-			.desclosebtn:hover,.desclosebtn:focus{
-				color: #000;
-				text-decoration: none;
-				cursor:pointer;
-			}
-
-			@keyframes modalopen {
-				from{opacity: 0}
-				to{opacity: 1}
-			}
-
-			input[type=text]{
-				width:auto;
-				border-radius:3px;
-				border : none;
-				border-bottom :1px solid #172a55;
-				font-family: Century Gothic;
-			}
-			input:focus{
-				outline:none;
-			}
-
-			input[type=submit],button{
-				background-color:#172a55;
-				font-family:Century Gothic;
-				color:white;
-				width:65px;
-				height:30px;
-				border-radius:3px;
-				border:none;
-			}
-
-		</style>
+		<link href="empDashB.css" rel="stylesheet" />
 	</head>
 	<body>
 		<section class="main">
@@ -413,7 +154,6 @@
 	            $result = $con->query($sql);
 							$desc = $con->query($sql);
 	            if($result->num_rows > 0){
-
 	              while($row = $result->fetch_assoc()){
 	                echo "<form method=\"POST\"><tr style='text-align:center;'><td width='100px'><input type=\"button\" onClick='titleButtonClick(this.name)' name='".$row["Job_Title"]."' class='titlebtn'  id='topicbtn' value='".$row["Job_Title"]."'></td><td width='100px'>".$row["Amount"]."</td><td width='100px'>&nbsp;&nbsp;&nbsp;</td></form>";
 									echo "<script>i = i + 1</script>";
@@ -422,8 +162,6 @@
 	            else{
 	              echo "Else";
 	            }
-
-
 	          ?>
 	        </table>
 				</fieldset>
@@ -460,16 +198,17 @@
 				</div>
 
 				<?php
+
+
 				function test()
 				{
-
 
 										require 'Connection.php';
 										$sql = "select Job_Description FROM postjobtable WHERE Job_Title='".$_GET['id']."'";
 										$_SESSION['desc'] = "itscalled";
 										if($con->query($sql)== TRUE)
 										{
-
+											echo 'running';
 											$res = $con->query($sql);
 											if($res -> num_rows > 0)
 											{
@@ -490,19 +229,42 @@
 											}
 
 										}
-										else {
-
-										}
-
-
-
-
 				}
+
+
+
 				if(isset($_GET['id']))
 				{
+					echo 'in if';
 
-					echo $_GET['id'];
 					test();
+				}
+
+
+						function acceptCall()
+						{
+
+							require 'Connection.php';
+							$user = $_SESSION['user'];
+								$ID =  $_GET['id'];
+							$acpt = "no";
+							$asql = "INSERT INTO comjobrequest(jobtitle,auser,accept) VALUES ('$ID','$user','$acpt')" ;
+							if($con->query($asql) == TRUE)
+							{
+								echo "<script>	desmodal.style.display = 'none';
+									history.replaceState(null,null,\"empDashB.php\");</script>";
+							}
+							else {
+
+								echo "ERROR HAI PATA NAHI CHALTA";
+							}
+						}
+
+				if(isset($_POST['submit']))
+				{
+
+
+					acceptCall();
 				}
 
 				 ?>
@@ -510,7 +272,6 @@
 
 			<?php
 			require 'Connection.php';
-
 			$sql = "Select * from employeetable where Username = ?";
 			$stmt = mysqli_stmt_init($con);
 			if(!mysqli_stmt_prepare($stmt,$sql)){
@@ -522,9 +283,7 @@
 			}
 			$result = mysqli_stmt_get_result($stmt);
 			if($row = mysqli_fetch_assoc($result)){
-
 			}
-
 			function UpdateAccout()
 			{
 				require 'Connection.php';
@@ -534,11 +293,9 @@
 				$phone = $_POST['phno'];
 				$aadhar = $_POST['ano'];
 				$username = $_POST['uname'];
-
-
 					$sql = "update employeetable set Name='$name',Email='$email',Address='$address',Phone='$phone',Aadhar='$aadhar',Username='$username' where Username='".$_SESSION['user']."'";
 					if ($con->query($sql) === TRUE) {
-						
+
 					}
 					else{
 						echo "error";
@@ -618,7 +375,6 @@
     </section>
 	</section>
   <script>
-
 	window.addEventListener('click',outsideClick);
 	var SettingPanel = document.getElementById('setting');
 	var NormalPanel = document.getElementById('Normal');
@@ -642,7 +398,6 @@
 			document.getElementById('content').style.marginLeft = "0px";
 			NormalPanel.style.display = "block";
 			SettingPanel.style.display = "none";
-
 		}
 	}
 	function Settingpanel()
@@ -654,9 +409,7 @@
 	{
 		 NormalPanel.style.display = "block";
 		 SettingPanel.style.display = "none";
-
 	}
-
 	//Modal of Change Password
 	//get modal element
 	var modal = document.getElementById('Pass');
@@ -674,7 +427,6 @@
 	{
 		modal.style.display = 'none';
 	}
-
 	//Edit Profile Pane
 	//get modal element
 	var mmodal = document.getElementById('editProfile');
@@ -698,7 +450,6 @@
 		if(e.target == mmodal)
 		mmodal.style.display = 'none';
 	}
-
 	//Delete Modal
 	//get modal element
 	var Delmodal = document.getElementById('DelModal');
@@ -722,7 +473,6 @@
 		if(e.target == Delmodal)
 		Delmodal.style.display = 'none';
 	}
-
 	//get topic button modal element
 		var desmodal = document.getElementById('desmodal');
 		//get open topic button modal button
@@ -745,7 +495,6 @@
 			if(e.target == desmodal)
 			desmodal.style.display = 'none';
 		}
-
     </script>
 	</body>
 </html>
