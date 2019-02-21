@@ -56,7 +56,7 @@
 			{
 				if($Password != $row['Password'])
 				{
-					header("Location:login.php?error=wrongpass");
+					echo '<span style="color: Red">Passowrd is Wrong</span>';
 					exit();
 				}
 				else if($Password == $row['Password'] )
@@ -69,7 +69,7 @@
 					exit();
 				}
 				else {
-					header("Location:login.php?error=wrongpass");
+					echo '<span style="color: Red">Passowrd is Wrong</span>';
 					exit();
 				}
 			}
@@ -86,7 +86,7 @@
 					{
 						if($Password != $row['Password'])
 						{
-							header("Location:login.php?error=wrongpass");
+							echo '<span style="color: Red">Passowrd is Wrong</span>';
 							exit();
 						}
 						else if($Password == $row['Password'] )
@@ -99,7 +99,7 @@
 								exit();
 						}
 						else {
-							header("Location:login.php?error=wrongpass");
+							echo '<span style="color: Red">Passowrd is Wrong</span>';
 							exit();
 						}
 					}
@@ -116,7 +116,7 @@
 							{
 								if($Password != $row['Password'])
 								{
-									header("Location:login.php?error=wrongpass");
+									echo '<span style="color: Red">Passowrd is Wrong</span>';
 									exit();
 								}
 								else if($Password == $row['Password'] )
@@ -129,12 +129,12 @@
 										exit();
 								}
 								else {
-									header("Location:login.php?error=wrongpass");
+									echo '<span style="color: Red">Passowrd is Wrong</span>';
 									exit();
 								}
 							}
 							else {
-								header("Location:login.php?error=nouser");
+								echo '<span style="color: Red">User do not Exist</span>';
 								exit();
 							}
 						}
