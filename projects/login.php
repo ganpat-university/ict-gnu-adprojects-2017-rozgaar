@@ -63,6 +63,7 @@
 				{
 						session_start();
 						$_SESSION['user'] = $row['Username'];
+						$_SESSION['pass'] = $row['Password'];
 						//Employee Database
 					header("Location:empDashB.php?login=success");
 					exit();
@@ -92,6 +93,7 @@
 						{
 								session_start();
 								$_SESSION['user'] = $row['Username'];
+								$_SESSION['pass'] = $row['Password'];
 								//individual Database
 								header("Location:indiDashB.php?login=success");
 								exit();
@@ -121,6 +123,7 @@
 								{
 										session_start();
 										$_SESSION['user'] = $row['Username'];
+										$_SESSION['pass'] = $row['Password'];
 										//Company Database
 										header("Location:compDashB.php?login=success");
 										exit();
