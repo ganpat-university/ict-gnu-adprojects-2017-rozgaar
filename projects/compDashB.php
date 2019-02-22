@@ -101,7 +101,7 @@
 					echo "<table>";
 					if($result->num_rows > 0){
 						while($row = $result->fetch_assoc()){
-							echo "<tr style='text-align:center;font-size:16px;'><td width='100px'>".$row['jobtitle']."</td><td width='100px'>".$row["auser"]."</td><td><input type=\"button\" name='".$row["auser"]."' value=\"Grant\" class=\"grant\" /></td><td><br/><br/></td></tr>";
+							echo "<tr style='text-align:center;font-size:16px;'><td width='100px'>".$row['jobtitle']."</td><td width='100px'>".$row["auser"]."</td><td><input type=\"button\" onClick='titleButtonClick(this.name)' name='".$row["auser"]."' value=\"Grant\" class=\"grant\" /></td><td><br/><br/></td></tr>";
 						}
 						echo "</table>";
 						echo "</form >";
@@ -112,7 +112,47 @@
 				?>
 			</table>
 		</fieldset>
+		<script>
+			function titleButtonClick(clickid)
+			{
+				alert(clickid);
+				window.location.replace("?id=" + clickid);
+			}
+			</script>
 
+
+							<?php
+
+
+							function modalDisplay()
+							{
+
+													require 'Connection.php';
+													$sql =	"update comjobrequest set accept='yes' where auser='".$_GET['id']."'";
+													$del = "delete from comjobrequest where accept = 'no'";
+													if($con->query($sql)== TRUE)
+													{
+														echo 'running';
+														$con->query($del);
+														echo '<script>history.replaceState(null,null,"compDashB.php");</script>';
+
+
+													}
+													else {
+														echo 'error';
+														echo mysqli_error($con);
+													}
+							}
+
+
+
+							if(isset($_GET['id']))
+							{
+								echo 'in if';
+
+								modalDisplay();
+							}
+						?>
 
 		<div id="editProfile" class="editProfile_modal">
 	    <div class = "editProfile_modal-content">
