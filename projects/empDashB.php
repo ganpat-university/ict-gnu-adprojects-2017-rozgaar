@@ -200,7 +200,7 @@
 				<?php
 
 
-				function test()
+				function modalDisplay()
 				{
 
 										require 'Connection.php';
@@ -237,7 +237,7 @@
 				{
 					echo 'in if';
 
-					test();
+					modalDisplay();
 				}
 
 
@@ -410,23 +410,25 @@
 		 NormalPanel.style.display = "block";
 		 SettingPanel.style.display = "none";
 	}
+	
 	//Modal of Change Password
 	//get modal element
-	var modal = document.getElementById('Pass');
+	var passmodal = document.getElementById('Pass');
 	//get open modal button
-	var modalBtn = document.getElementById('changePass');
+	var passmodalBtn = document.getElementById('changePass');
 	//get close button
 	var closeBtn = document.getElementById('closeBtn');
-	modalBtn.addEventListener('click',openModal);
+	passmodalBtn.addEventListener('click',openModal);
 	closeBtn.addEventListener('click',closeModal);
 	function openModal()
 	{
-		modal.style.display = 'block';
+		passmodal.style.display = 'block';
 	}
 	function closeModal()
 	{
-		modal.style.display = 'none';
+		passmodal.style.display = 'none';
 	}
+
 	//Edit Profile Pane
 	//get modal element
 	var mmodal = document.getElementById('editProfile');
@@ -450,6 +452,7 @@
 		if(e.target == mmodal)
 		mmodal.style.display = 'none';
 	}
+
 	//Delete Modal
 	//get modal element
 	var Delmodal = document.getElementById('DelModal');
@@ -473,6 +476,7 @@
 		if(e.target == Delmodal)
 		Delmodal.style.display = 'none';
 	}
+
 	//get topic button modal element
 		var desmodal = document.getElementById('desmodal');
 		//get open topic button modal button

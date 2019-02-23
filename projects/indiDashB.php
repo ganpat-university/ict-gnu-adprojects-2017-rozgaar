@@ -29,6 +29,8 @@
   $current = $_POST['CurPass'];
   $new = $_POST['NewPass'];
   $CompPass = $_POST['CNewPass'];
+	$message = "Password Do Not Match !!!";
+	$message1 = "Password Is Wrong !!!";
   if($current == $_SESSION['pass'])
   {
  	 if($new == $CompPass)
@@ -39,17 +41,17 @@
  				 header('location:login.php');
  			 }
  			 else{
- 				 echo 'Error!';
+ 				 echo "<script type='text/javascript'>alert('$message');</script>";
  			 }
  	 }
  	 else {
- 			 echo '<span style = "color:Red;">Password does not match</span>';
+ 			 echo "<script type='text/javascript'>alert('$message');</script>";
  	 }
 
   }
   else {
 
- 		 echo '<span style = "color:Red;">Password is Wrong</span>';
+ 		 echo "<script type='text/javascript'>alert('$message1');</script>";
 
   }
  }
@@ -61,196 +63,7 @@
 ?>
 <html>
 	<head>
-		<style>
-			body {
-				font-family: Century Gothic;
-			}
-			.sidenav {
-				height: 100%;
-				width: 0;
-				position: fixed;
-				z-index: 1;
-				top: 0;
-				left: 0;
-				background-color: #172a55;
-				overflow-x: hidden;
-				transition: 0.3s;
-				padding-top: 60px;
-			}
-			.sidenav a,p {
-				padding: 8px 8px 8px 0px;
-				text-decoration: none;
-				font-size: 25px;
-				color: white;
-				display: block;
-				transition: 0.3s;
-				width: auto;
-				height: 30px;
-			}
-			.sidenav a:hover {
-				background-color: white;
-				color: #172a55;
-			}
-			.sidenav .closebtn {
-				position: absolute;
-				top: 0;
-				right: 0px;
-				padding-left: 8px;
-				width: 50px;
-				height: 45px;
-				font-size: 36px;
-				margin-left: 50px;
-			}
-			#content{
-				width: auto;
-				height: auto;
-				float: left;
-				transition: margin-left .5s;
-			}
-			#anchortable{
-				color: #172a55;
-			}
-			#detailspane{
-				background-color:#172a55;
-				font-family:Century Gothic;
-				color:white;
-				width:65px;
-				height:25px;
-				border-radius:3px;
-				border:none;
-			}
-			#detailspane:hover {
-				cursor:pointer;
-				background-color: white;
-				color: #172a55;
-				border-radius: 3px;
-				transition: 0.1s;
-			}
-			#setting
-			{
-				margin: auto;
-				display: none;
-			}
-
-			.modal
-			{
-				display: none;
-				position: fixed;
-				z-index: 1;
-				left: 0;
-				top: 0;
-				height: 100%;
-				width: 100%;
-				overflow: auto;
-				background-color: rgba(0, 0, 0, 0.5);
-			}
-			.modal-content
-			{
-				background-color: #ffffff;
-				margin:12% auto;
-				border-radius: 7%;
-				padding: :20px;
-				width: 30%;
-				height:auto;
-				box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2),0 7px 20px 0 rgba(0, 0, 0, 0.2);
-				animation-name: modalopen;
-				animation-duration: 1s;
-			}
-
-			.editProfile_modal
-			{
-				display: none;
-				position: fixed;
-				z-index: 1;
-				left: 0;
-				top: 0;
-				height: 100%;
-				width: 100%;
-				overflow: auto;
-				background-color: rgba(0, 0, 0, 0.5);
-			}
-			.editProfile_modal-content
-			{
-				background-color: #ffffff;
-				margin: 4% auto;
-				border-radius: 5%;
-				padding: :20px;
-				width: 30%;
-				height:auto;
-				box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2),0 7px 20px 0 rgba(0, 0, 0, 0.2);
-				animation-name: modalopen;
-				animation-duration: 1s;
-			}
-			input[type=text],input[type=password],input[type=email]{
-				width:auto;
-				border-radius:3px;
-				border : none;
-				border-bottom :1px solid #172a55;
-				font-family: Century Gothic;
-			}
-			select{
-				width:135px;
-				border-radius:3px;
-				border : none;
-				border-bottom :1px solid #172a55;
-				font-family: Century Gothic;
-			}
-
-			input[type=submit]{
-				background-color:#172a55;
-				font-family:Century Gothic;
-				color:white;
-				width:65px;
-				height:30px;
-				border-radius:3px;
-				border:none;
-			}
-			input[type=number]{
-				font-family: Century Gothic;
-				border : none;
-				border-bottom :1px solid #172a55;
-				border-radius:3px;
-			}
-
-			.Deletemodal
-			{
-				display: none;
-				position: fixed;
-				z-index: 1;
-				left: 0;
-				top: 0;
-				height: 100%;
-				width: 100%;
-				overflow: auto;
-				background-color: rgba(0, 0, 0, 0.5);
-			}
-			.Deletemodal-content
-			{
-				background-color: #ffffff;
-				margin:12% auto;
-				border-radius: 5%;
-				padding: :20px;
-				width: 30%;
-				height:auto;
-				box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2),0 7px 20px 0 rgba(0, 0, 0, 0.2);
-				animation-name: modalopen;
-				animation-duration: 1s;
-			}
-
-			#deltxt
-			{
-				color: #172a55;
-			}
-			button{
-				background-color:#172a55;
-				font-family:Century Gothic;
-				color:white;
-				width:65px;
-				height:30px;
-				border-radius:3px;
-				border:none;
-			}
-		</style>
+		<link rel="stylesheet" href="indiDashB.css">
 	</head>
 	<body>
 		<section class="main">
@@ -305,85 +118,127 @@
 			</section>
 		</section>
 
-		<!--Modal for Changing Password -->
-		<div id="Pass" class="modal">
-			<div class = "modal-content">
-				<span id="closeBtn" class="closebtn">&times;&nbsp;</span>
-				<form method="POST">
-					<table style="margin:0 auto;">
-						<tr>
-							<th><h1 style="text-align: center;">Change Password</h1></th>
+		<section style="height: 100%;">
+				<fieldset style="border-radius:5px;width:25%;height:auto;margin-left:37%;margin-top:7%;">
+					<table style="margin-left:10px;">
+						<tr style="font-size:20px;">
+							<th width="100px">Job Title</th>
+							<th width="100px">Username</th>
+							<th></th>
 						</tr>
-						<tr>
-							<td colspan="2">Current Password:</td>
-							<td colspan="2"><input type="text" name="CurPass"placeholder="Please Enter Current Password here" style="width:100%"  required></td>
-						</tr>
-						<tr><td><br/></td></tr>
-						<tr>
-						<td colspan="2">New Password:</td>
-						<td colspan="2"><input type="text" name="NewPass" placeholder="Please Enter New Password" style="width:100%" required></td>
-						</tr>
-						<tr><td><br/></td></tr>
-						<tr>
-						<td colspan="2">confirm Password:</td>
-						<td colspan="2"><input type="text" name="CNewPass" placeholder="Re-Enter your new password" style="width:100%" required></td>
-						</tr>
-						<tr><td><br/></td></tr>
-						<tr>
-						<td colspan="2"><input type="submit" id="chgpass" name="passchg" value="Change"></td>
-						</tr>
-						<tr><td><br/></td></tr>
+
+						<?php
+							require 'Connection.php';
+							$sql = "SELECT jobtitle,auser FROM comjobrequest ";
+
+							$result = $con->query($sql);
+							$desc = $con->query($sql);
+							echo "<form method=\"POST\">";
+							echo "<table>";
+							if($result->num_rows > 0){
+								while($row = $result->fetch_assoc()){
+									echo "<tr style='text-align:center;font-size:16px;'><td width='100px'>".$row['jobtitle']."</td><td width='100px'>".$row["auser"]."</td><td><input type=\"button\" onClick='titleButtonClick(this.name)' name='".$row["auser"]."' value=\"Grant\" class=\"grant\" /></td><td><br/><br/></td></tr>";
+								}
+								echo "</table>";
+								echo "</form >";
+							}
+							else{
+								echo "Else";
+							}
+						?>
 					</table>
-				</form>
-			</div>
-		</div>
-
-		</section>
-
-		<?php
-
-
-				require 'Connection.php';
-
-				$sql = "Select * from individualtable where Username = ?";
-				$stmt = mysqli_stmt_init($con);
-				if(!mysqli_stmt_prepare($stmt,$sql)){
-					echo 'Error.';
-				}
-				else{
-					mysqli_stmt_bind_param($stmt,"s",$_SESSION['user']);
-					mysqli_stmt_execute($stmt);
-				}
-				$result = mysqli_stmt_get_result($stmt);
-				if($row = mysqli_fetch_assoc($result)){
-
-				}
-
-				function UpdateAccout()
-			 	{
-			 		require 'Connection.php';
-					$name = $_POST['fname'];
-					$email = $_POST['email'];
-					$phone = $_POST['phno'];
-					$aadhar = $_POST['ano'];
-					$skill = $_POST['skill'];
-					$username = $_POST['uname'];
-
-			 			$sql = "update individualtable set Name='$name',Email='$email',Phone='$phone',Aadhar='$aadhar',Skill='$skill',Username='$username' where Username='".$_SESSION['user']."'";
-			 			if ($con->query($sql) === TRUE) {
-
-			 			}
-			 			else{
-			 				echo 'Error!';
-			 			}
-			 	}
-			 	if(isset($_POST['updateacc']))
-			 	{
-			 		UpdateAccout();
-			 	}
+				</fieldset>
+				<script>
+					function titleButtonClick(clickid)
+					{
+						alert(clickid);
+						window.location.replace("?id=" + clickid);
+					}
+					</script>
 
 
-		?>
+									<?php
+
+
+									function modalDisplay()
+									{
+
+															require 'Connection.php';
+															$sql =	"update comjobrequest set accept='yes' where auser='".$_GET['id']."'";
+															$del = "delete from comjobrequest where accept = 'no'";
+															if($con->query($sql)== TRUE)
+															{
+																echo 'running';
+																$con->query($del);
+																echo '<script>history.replaceState(null,null,"compDashB.php");</script>';
+
+
+															}
+															else {
+																echo 'error';
+																echo mysqli_error($con);
+															}
+									}
+
+
+
+									if(isset($_GET['id']))
+									{
+										echo 'in if';
+
+										modalDisplay();
+									}
+
+								?>
+
+								<?php
+
+
+										require 'Connection.php';
+
+										$sql = "Select * from individualtable where Username = ?";
+										$stmt = mysqli_stmt_init($con);
+										if(!mysqli_stmt_prepare($stmt,$sql)){
+											echo 'Error.';
+										}
+										else{
+											mysqli_stmt_bind_param($stmt,"s",$_SESSION['user']);
+											mysqli_stmt_execute($stmt);
+										}
+										$result = mysqli_stmt_get_result($stmt);
+										if($row = mysqli_fetch_assoc($result)){
+
+										}
+
+										function UpdateAccout()
+										{
+											require 'Connection.php';
+											$name = $_POST['fname'];
+											$email = $_POST['email'];
+											$phone = $_POST['phno'];
+											$aadhar = $_POST['ano'];
+											$skill = $_POST['skill'];
+											$username = $_POST['uname'];
+
+												$sql = "update individualtable set Name='$name',Email='$email',Phone='$phone',Aadhar='$aadhar',Skill='$skill',Username='$username' where Username='".$_SESSION['user']."'";
+												if ($con->query($sql) === TRUE) {
+
+												}
+												else{
+													echo 'Error!';
+												}
+										}
+										if(isset($_POST['updateacc']))
+										{
+											UpdateAccout();
+										}
+
+
+								?>
+
+
+
+
 
 		<div id="editProfile" class="editProfile_modal">
 	    <div class = "editProfile_modal-content">
@@ -448,6 +303,39 @@
 			</div>
 		</div>
 
+		<!--Modal for Changing Password -->
+		<div id="Pass" class="modal">
+			<div class = "modal-content">
+				<span id="passclose" class="closebtn">&times;&nbsp;</span>
+				<form method="POST">
+					<table style="margin:0 auto;">
+						<tr>
+							<th><h1 style="text-align: center;">Change Password</h1></th>
+						</tr>
+						<tr>
+							<td colspan="2">Current Password:</td>
+							<td colspan="2"><input type="text" name="CurPass"placeholder="Please Enter Current Password here" style="width:100%"  required></td>
+						</tr>
+						<tr><td><br/></td></tr>
+						<tr>
+						<td colspan="2">New Password:</td>
+						<td colspan="2"><input type="text" name="NewPass" placeholder="Please Enter New Password" style="width:100%" required></td>
+						</tr>
+						<tr><td><br/></td></tr>
+						<tr>
+						<td colspan="2">confirm Password:</td>
+						<td colspan="2"><input type="text" name="CNewPass" placeholder="Re-Enter your new password" style="width:100%" required></td>
+						</tr>
+						<tr><td><br/></td></tr>
+						<tr>
+						<td colspan="2"><input type="submit" id="chgpass" name="passchg" value="Change"></td>
+						</tr>
+						<tr><td><br/></td></tr>
+					</table>
+				</form>
+			</div>
+		</div>
+</section>
 	</section>
     <script>
     window.addEventListener('click',outsideClick);
@@ -488,20 +376,26 @@
 
 		//Modal of Change Password
 		//get modal element
-		var modal = document.getElementById('Pass');
+		var passmodal = document.getElementById('Pass');
 		//get open modal button
-		var modalBtn = document.getElementById('changePass');
+		var passmodalBtn = document.getElementById('changePass');
 		//get close button
-		var closeBtn = document.getElementById('closeBtn');
-		modalBtn.addEventListener('click',openModal);
-		closeBtn.addEventListener('click',closeModal);
+		var passclose = document.getElementById('passclose');
+		passmodalBtn.addEventListener('click',openModal);
+		passclose.addEventListener('click',closeModal);
+		window.addEventListener('click',outsideeeClick);
 		function openModal()
 		{
-			modal.style.display = 'block';
+			passmodal.style.display = 'block';
 		}
 		function closeModal()
 		{
-			modal.style.display = 'none';
+			passmodal.style.display = 'none';
+		}
+		function outsideeeClick(e)
+		{
+			if(e.target == passmodal)
+			passmodal.style.display = 'none';
 		}
 
 		//Edit Profile Pane

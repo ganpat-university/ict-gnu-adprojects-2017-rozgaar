@@ -42,6 +42,7 @@ body {
   height: auto;
   float: left;
   transition: margin-left .5s;
+
 }
 #anchortable{
   color: #172a55;
@@ -62,11 +63,14 @@ body {
   border-radius: 3px;
   transition: 0.1s;
 }
+
 #setting
 {
   margin: auto;
   display: none;
+
 }
+
 .modal
 {
   display: none;
@@ -102,6 +106,7 @@ body {
   text-decoration: none;
   cursor:pointer;
 }
+
 .editProfile_modal
 {
   display: none;
@@ -150,10 +155,12 @@ body {
   animation-name: modalopen;
   animation-duration: 1s;
 }
+
 #deltxt
 {
   color: #172a55;
 }
+
 .closebtn
 {
   color: #ccc;
@@ -165,6 +172,7 @@ body {
   text-decoration: none;
   cursor:pointer;
 }
+
 .descriptionmodal
 {
   display: none;
@@ -214,10 +222,12 @@ body {
   text-decoration: none;
   cursor:pointer;
 }
+
 @keyframes modalopen {
   from{opacity: 0}
   to{opacity: 1}
 }
+
 input[type=text]{
   width:auto;
   border-radius:3px;
@@ -228,6 +238,7 @@ input[type=text]{
 input:focus{
   outline:none;
 }
+
 input[type=submit],button{
   background-color:#172a55;
   font-family:Century Gothic;

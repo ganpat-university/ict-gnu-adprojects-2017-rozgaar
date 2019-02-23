@@ -107,7 +107,7 @@
 				<form method="POST">
 					<table style="margin:0 auto;">
 						<tr>
-							<th><h1 style="text-align: center;">Post Job</h1></th>
+							<td><h1 style="text-align: center;font-size:27px">Post Job</h1></td>
 						</tr>
 						<tr>
 							<td colspan="2">Job Topic:</td>
@@ -145,26 +145,26 @@
 
 		<script>
 		//get modal element
-		var modal = document.getElementById('simpleModal');
+		var mmmodal = document.getElementById('simpleModal');
 		//get open modal button
-		var modalBtn = document.getElementById('modalBtn');
+		var mmmodalBtn = document.getElementById('modalBtn');
 		//get close button
-		var closeBtn = document.getElementById('closeBtn');
-		modalBtn.addEventListener('click',openModal);
-		closeBtn.addEventListener('click',closeModal);
-		window.addEventListener('click',outsideClick);
-		function openModal()
+		var cccloseBtn = document.getElementById('closeBtn');
+		mmmodalBtn.addEventListener('click',ooopenModal);
+		cccloseBtn.addEventListener('click',cccloseModal);
+		window.addEventListener('click',oooutsideClick);
+		function ooopenModal()
 		{
-			modal.style.display = 'block';
+			mmmodal.style.display = 'block';
 		}
-		function closeModal()
+		function cccloseModal()
 		{
-			modal.style.display = 'none';
+			mmmodal.style.display = 'none';
 		}
-		function outsideClick(e)
+		function oooutsideClick(e)
 		{
 			if(e.target == modal)
-			modal.style.display = 'none';
+			mmmodal.style.display = 'none';
 		}
 		</script>
 
