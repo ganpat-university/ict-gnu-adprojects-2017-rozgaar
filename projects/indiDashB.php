@@ -170,7 +170,7 @@
 															{
 																echo 'running';
 																$con->query($del);
-																echo '<script>history.replaceState(null,null,"compDashB.php");</script>';
+																echo '<script>history.replaceState(null,null,"indiDashB.php");</script>';
 
 
 															}

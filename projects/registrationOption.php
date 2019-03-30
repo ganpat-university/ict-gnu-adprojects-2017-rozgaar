@@ -9,7 +9,7 @@
 			include'header.php';
 		?>
 		<div class="s3">
-		<p>&nbsp; Here you can select what occupation you want to go for.Three options are given and each 
+		<p>&nbsp; Here you can select what occupation you want to go for.Three options are given and each
 		has some common and some unique functionalities.Choose according to your
 		preference and need<br><br></div>
 		<div style="margin-left:480px;" class="sel">
@@ -17,20 +17,20 @@
 			<br/>
 			<div class="s1"><a href="registerComp.php">Company</a></div>
 			</br>
-			<div class="s1"><a href="registrationIndi.php">Individual</a></div>
+			<div class="s1"><a href="registerIndi.php">Individual</a></div>
 			</br>
 			<div class="s1"><a href="registerEmp.php">Employee</a></div>
 		</div>
-		<div class="s3" style="margin-top:17%;"> 
+		<div class="s3" style="margin-top:17%;">
 		<p>
-			<b>&nbsp;Company:</b> If you have your own organization or you represent the organization you 
+			<b>&nbsp;Company:</b> If you have your own organization or you represent the organization you
 			work for,then you can select this option which will provide a platform for your organization
 			to hire people who are eligible and want to work on big projects.(Can only post jobs)<br><br>
 			<b>&nbsp;Individual:</b> If you are someone who can provide work and is looking to hire people for
 			small scale projects,then you are at right place and can select this option
 			(Can only post jobs)<br><br>
 			<b>&nbsp;Employee:</b> It doesn't matter if you are a teen or a retired person as long as you have
-			skills to work.You can earn money by taking different job offers(small or big) and can also 
+			skills to work.You can earn money by taking different job offers(small or big) and can also
 			gain experience of different type of projects.(Can only accept jobs)
 		</p>
 		</div>

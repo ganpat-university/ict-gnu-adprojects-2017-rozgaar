@@ -160,7 +160,7 @@
 								}
 	            }
 	            else{
-	              echo "Else";
+	              echo "No Jobs Posted by Company";
 	            }
 	          ?>
 	        </table>
@@ -256,7 +256,7 @@
 							}
 							else {
 
-								echo "ERROR HAI PATA NAHI CHALTA";
+								echo "Error";
 							}
 						}
 
@@ -298,7 +298,7 @@
 
 					}
 					else{
-						echo "error";
+						echo "Error";
 					}
 			}
 			if(isset($_POST['updateacc']))
@@ -410,7 +410,7 @@
 		 NormalPanel.style.display = "block";
 		 SettingPanel.style.display = "none";
 	}
-	
+
 	//Modal of Change Password
 	//get modal element
 	var passmodal = document.getElementById('Pass');

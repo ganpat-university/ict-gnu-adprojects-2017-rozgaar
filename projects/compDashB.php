@@ -120,7 +120,7 @@
 		</section>
 	</section>
 
-		
+
 <section style="height: 100%;">
 		<fieldset style="border-radius:5px;width:25%;height:auto;margin-left:37%;margin-top:7%;">
 			<table style="margin-left:10px;">
@@ -146,7 +146,7 @@
 						echo "</form >";
 					}
 					else{
-						echo "Else";
+						echo 'No Data';
 					}
 				?>
 			</table>
@@ -159,35 +159,40 @@
 			}
 			</script>
 
-
 							<?php
-
-
-							function modalDisplay()
-							{
+											function modalDisplay()
+											{
 
 													require 'Connection.php';
-													$sql =	"update comjobrequest set accept='yes' where auser='".$_GET['id']."'";
-													$del = "delete from comjobrequest where accept = 'no'";
-													if($con->query($sql)== TRUE)
+													$getjob = "select jobtitle from comjobrequest where auser='".$_GET['id']."'";
+													if($con->query($getjob)==TRUE)
 													{
-														echo 'running';
-														$con->query($del);
-														echo '<script>history.replaceState(null,null,"compDashB.php");</script>';
+														$result = $con->query($getjob);
+														while($row = $result->fetch_assoc())
+														{
+															$sql =	"update comjobrequest set accept='yes' where auser='".$_GET['id']."'and  jobtitle='".$row['jobtitle']."'";
+															$del = "delete from comjobrequest where accept = 'no' and  jobtitle='".$row['jobtitle']."'" ;
+															if($con->query($sql)== TRUE)
+															{
+																$con->query($del);
+																echo '';
+																echo '<script>history.replaceState(null,null,"compDashB.php");</script>';
 
-
+															}
+															else {
+																echo 'Error';
+																echo mysqli_error($con);
+															}
+															break;
+														}
 													}
-													else {
-														echo 'error';
-														echo mysqli_error($con);
-													}
-							}
+												}
 
 
 
 							if(isset($_GET['id']))
 							{
-								echo 'in if';
+								echo '';
 
 								modalDisplay();
 							}
