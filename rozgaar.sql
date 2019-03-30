@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 21, 2019 at 04:01 PM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.2.13
+-- Generation Time: Mar 30, 2019 at 06:03 AM
+-- Server version: 10.1.33-MariaDB
+-- PHP Version: 7.2.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -39,12 +39,8 @@ CREATE TABLE `comjobrequest` (
 --
 
 INSERT INTO `comjobrequest` (`jobtitle`, `auser`, `accept`) VALUES
-('', '', 'no'),
-('', 'Gauram', 'no'),
-('', 'Gauram', 'no'),
-('ritul', 'Gauram', 'no'),
-('ritul', 'Gauram', 'no'),
-('ritul', 'Gauram', 'no');
+('test', 'emp', 'yes'),
+('test', 'emp', 'yes');
 
 -- --------------------------------------------------------
 
@@ -53,7 +49,6 @@ INSERT INTO `comjobrequest` (`jobtitle`, `auser`, `accept`) VALUES
 --
 
 CREATE TABLE `companytable` (
-  `Sr. No.` int(225) NOT NULL,
   `Name` varchar(225) NOT NULL,
   `OwnerName` varchar(225) NOT NULL,
   `Address` varchar(225) NOT NULL,
@@ -71,8 +66,8 @@ CREATE TABLE `companytable` (
 -- Dumping data for table `companytable`
 --
 
-INSERT INTO `companytable` (`Sr. No.`, `Name`, `OwnerName`, `Address`, `City`, `State`, `Pincode`, `Email`, `Phone`, `CRN`, `Username`, `Password`) VALUES
-(0, 'abc', 'abc', 'abc', 'abc', 'Dadra and Nagar Haveli', '382014', 'ritulchavda@yahoo.com', '9999988888', '9999988888', 'ritul', 'ritul');
+INSERT INTO `companytable` (`Name`, `OwnerName`, `Address`, `City`, `State`, `Pincode`, `Email`, `Phone`, `CRN`, `Username`, `Password`) VALUES
+('TCS', 'Ratan Tata', 'Gandhinagar, gujarat', 'Gandhinagar', 'Gujarat', '382024', 'info@tcs.com', '9999988888', '1122334455', 'tcs', 'hello');
 
 -- --------------------------------------------------------
 
@@ -96,7 +91,7 @@ CREATE TABLE `employeetable` (
 --
 
 INSERT INTO `employeetable` (`Sr. No.`, `Name`, `Email`, `Address`, `Phone`, `Aadhar`, `Username`, `Password`) VALUES
-(0, 'Gauram', 'abc@gm.co', 'abcd', '1234567890', '1234567812345678', 'Gauram', '12345');
+(0, 'Hello', 'hello@gmail.com', 'Hello', '9999988888', '1234567890123456', 'emp', 'emp');
 
 -- --------------------------------------------------------
 
@@ -134,11 +129,17 @@ CREATE TABLE `postjobtable` (
 --
 
 INSERT INTO `postjobtable` (`Sr. No.`, `Job_Title`, `Job_Deadline`, `Amount`, `Job_Description`) VALUES
-(1, 'ritul', 'ritul', 10, 'ritul');
+(1, 'test', '2019-03-26', 10000, 'test test');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `companytable`
+--
+ALTER TABLE `companytable`
+  ADD PRIMARY KEY (`Username`);
 
 --
 -- Indexes for table `postjobtable`
